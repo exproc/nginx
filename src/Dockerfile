@@ -10,5 +10,5 @@ EXPOSE 80
 
 STOPSIGNAL SIGQUIT
 
-CMD ["nginx", "-g", "daemon off;" "-c /etc/nginx/nginx.conf"]
-HEALTHCHECK --interval=60s --retries=5 CMD curl --fail http://localhost || exit 1
+CMD ["nginx", "-g", "daemon off;]
+HEALTHCHECK --interval=60s --retries=5 CMD curl --fail http://127.0.0.1 || exit 1
