@@ -5,5 +5,5 @@ RUN apk add -U tzdata curl bash nginx
 RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN date
 RUN nginx -v
-ENTRYPOINT [nginx -g 'daemon off']
+ENTRYPOINT [nginx -g daemon off]
 HEALTHCHECK --interval=60s --retries=5 CMD curl --fail http://localhost || exit 1
