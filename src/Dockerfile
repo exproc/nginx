@@ -1,7 +1,9 @@
-FROM nginx:mainline-alpine
+#FROM nginx:mainline-alpine
+FROM alpine:edge
 ENV TZ=America/New_York
-RUN apk add -U tzdata curl bash
+RUN apk add -U tzdata curl bash nginx
 RUN cp /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN date
-
+RUN nginx -v
+ENTRYPOINT [nginx -g 'daemon off']
 HEALTHCHECK --interval=60s --retries=5 CMD curl --fail http://localhost || exit 1
